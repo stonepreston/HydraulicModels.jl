@@ -1,6 +1,3 @@
-using HydraulicModels
-using Test
+using SafeTestsets
 
-@testset "HydraulicModels.jl" begin
-    # Write your tests here.
-end
+@safetestset "Pin Tests" begin include("pin_tests.jl") end
