@@ -2,7 +2,7 @@ function StaticPipe(iv::Num; name, L=1.0, C=90, d=.4, γ=9810)
     @named a = Pin(iv)
     @named b = Pin(iv)
     sts = @variables Δp(iv)=1.0 Q(iv)=1.0
-    ps= @parameters C=C 
+    ps = @parameters L=L d=d C=C γ=γ 
 
     eqs = [
         Δp ~ a.p - b.p
@@ -15,3 +15,7 @@ function StaticPipe(iv::Num; name, L=1.0, C=90, d=.4, γ=9810)
     ]
     compose(ODESystem(eqs, iv, sts, ps; name=name), a, b)
 end
+
+@parameters t
+pipe1 = StaticPipe(t; name=:pipe1)
+string.(parameters(pipe1))

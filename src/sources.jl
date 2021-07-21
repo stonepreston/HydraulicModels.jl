@@ -1,8 +1,8 @@
-function IdealPressureSource(iv::Num; name, P=101325)
+function IdealPressureSource(iv::Num; name, p=101325)
     @named a = Pin(iv)
+    ps = @parameters p=p
     eqs = [
-        a.p ~ P
+        a.p ~ p
     ]
-    compose(ODESystem(eqs, iv, [], []; name=name), a)
+    compose(ODESystem(eqs, iv, [], ps; name=name), a)
 end
-

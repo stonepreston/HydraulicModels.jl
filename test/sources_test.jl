@@ -6,8 +6,6 @@ using Test
     @parameters t
     source1 = IdealPressureSource(t; name=:source1)
     @test !isnothing(source1.a)
-    @test isequal(string.(equations(source1)), ["a₊p(t) ~ 101325"])
-
-    source2 = IdealPressureSource(t; name=:source1, P=50)
-    @test isequal(string.(equations(source2)), ["a₊p(t) ~ 50"])
+    @test isequal(string.(equations(source1)), ["a₊p(t) ~ p"])
+    @test isequal(string.(parameters(source1)), ["p"])
 end
