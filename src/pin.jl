@@ -1,8 +1,8 @@
 @parameters t
 
-@connector function Pin(;name)
-    sts = @variables p(t)=1.0 Q(t)=1.0
-    ODESystem(Equation[], t, sts, []; name=name)
+@connector function Pin(iv::Num; name)
+    sts = @variables p(iv)=1.0 Q(iv)=1.0
+    ODESystem(Equation[], iv, sts, []; name=name)
 end
 
 function ModelingToolkit.connect(::Type{Pin}, pins...)
