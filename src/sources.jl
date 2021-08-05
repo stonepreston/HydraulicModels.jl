@@ -1,4 +1,4 @@
-function IdealPressureSource(iv::Num; name, p=101325)
+function IdealPressureSource(iv::Num; name, p=101325.0)
     @named a = Pin(iv)
     ps = @parameters p=p
     eqs = [
