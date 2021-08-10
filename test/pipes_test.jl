@@ -8,7 +8,7 @@ using Test
     pipe1 = StaticPipe(t; name=:pipe1)
     @test !isnothing(pipe1.a)
     @test !isnothing(pipe1.b)
-    @test isequal(string.(parameters(pipe1)), ["L", "d", "C", "γ"])
+    @test isequal(string.(parameters(pipe1)), ["C"])
 end
 
 @testset "Pipe Connected to Ideal Sources" begin
